@@ -1,7 +1,7 @@
-import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
+import { readBlockConfig, decorateIcons, decorateSections } from '../../scripts/lib-franklin.js';
 
 // media query match that indicates mobile/tablet width
-const MQ = window.matchMedia('(min-width: 900px)');
+const MQ = window.matchMedia('(min-width: 990px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -85,6 +85,90 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+const createUtility = (section) => {
+  const img = document.createElement('img');
+  img.setAttribute('src', '/icons/external_link_gray.svg');
+  img.setAttribute('alt', 'External Link');
+
+  const utility = document.createElement('div');
+  utility.classList.add('nav-utility');
+
+  const list = section.querySelector('ul');
+  list.classList.add('nav-list');
+  list.querySelectorAll('li').forEach((item) => {
+    item.classList.add('nav-item');
+    const a = item.querySelector('a');
+    if (a && a.getAttribute('href').includes('http')) {
+      a.append(img.cloneNode(true));
+    } else if (!a) {
+      const anchor = document.createElement('a');
+      anchor.setAttribute('href', '#');
+      anchor.textContent = item.textContent;
+      item.innerHTML = anchor.outerHTML;
+    }
+  });
+
+  utility.append(list);
+  return utility;
+};
+
+const createLogo = (section) => {
+  const logo = document.createElement('div');
+  logo.classList.add('nav-logo');
+  const a = section.querySelector('a');
+  const href = a.getAttribute('href');
+  const text = a.textContent;
+
+  logo.innerHTML = `
+      <a class="image" href="${href}">
+        <span class="sr-only">${text}</span>
+        <img src="/icons/graco_logo.svg" class="site-header__brand-logo d-inline-block align-top" alt="${a.textContent}">
+      </a>
+      <div class="nav-link">
+        <a href="${href}">
+            <span class="nav-link-text">${text}</span>
+        </a>
+      </div>
+  `;
+  return logo;
+};
+
+const createSections = (section) => {
+  const sections = document.createElement('div');
+  sections.classList.add('nav-sections');
+  const list = section.querySelector('ul');
+  list.classList.add('nav-list');
+
+  list.querySelectorAll('li').forEach((li) => li.classList.add('nav-item'));
+
+  sections.append(list);
+  return sections;
+};
+
+const createHamburger = () => {
+  const hamburger = document.createElement('div');
+  hamburger.classList.add('nav-hamburger');
+
+  hamburger.innerHTML = `
+      <ul class="nav-list">
+        <li class="nav-item">
+          <a class="nav-link js-mobile-menu-toggle mobile-menu-icon" href="#">
+            <img src="/icons/menu.svg" class="mobile-icon open" alt="Main Menu">
+            <img src="/icons/close.svg" class="mobile-icon close" alt="Close Main Menu">
+          </a>
+        </li>
+      </ul>
+  `;
+
+  const link = hamburger.querySelector('.js-mobile-menu-toggle');
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    document.querySelector('body').classList.toggle('menu-is-open');
+  });
+
+  return hamburger;
+};
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -101,43 +185,26 @@ export default async function decorate(block) {
     const html = await resp.text();
 
     // decorate nav DOM
+    const tmp = document.createElement('div');
+    tmp.innerHTML = html;
+
     const nav = document.createElement('nav');
-    nav.id = 'nav';
-    nav.innerHTML = html;
+    decorateSections(tmp);
 
-    const classes = ['brand', 'sections', 'tools'];
-    classes.forEach((c, i) => {
-      const section = nav.children[i];
-      if (section) section.classList.add(`nav-${c}`);
-    });
+    const primary = document.createElement('div');
+    primary.classList.add('nav-primary');
 
-    const navSections = nav.querySelector('.nav-sections');
-    if (navSections) {
-      navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-        navSection.addEventListener('click', () => {
-          if (MQ.matches) {
-            const expanded = navSection.getAttribute('aria-expanded') === 'true';
-            toggleAllNavSections(navSections);
-            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-          }
-        });
-      });
-    }
+    const utility = createUtility(tmp.querySelector('[data-section="utility"]'));
+    const logo = createLogo(tmp.querySelector('[data-section="logo"]'));
+    const sections = createSections(tmp.querySelector('[data-section="sections"]'));
 
-    // hamburger for mobile
-    const hamburger = document.createElement('div');
-    hamburger.classList.add('nav-hamburger');
-    hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
-        <span class="nav-hamburger-icon"></span>
-      </button>`;
-    hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-    nav.prepend(hamburger);
-    nav.setAttribute('aria-expanded', 'false');
-    // prevent mobile nav behavior on window resize
-    toggleMenu(nav, navSections, MQ.matches);
-    MQ.addEventListener('change', () => toggleMenu(nav, navSections, MQ.matches));
+    const hamburger = createHamburger();
 
+    nav.append(utility);
+    primary.append(logo);
+    primary.append(sections);
+    primary.append(hamburger);
+    nav.append(primary);
     decorateIcons(nav);
     block.append(nav);
   }
