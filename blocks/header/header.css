@@ -38,6 +38,8 @@ header {
 .header nav .nav-primary {
   height: var(--nav-height);
   width: 100%;
+  max-width: 1240px;
+  margin: 0 auto;
   padding-left: 15px;
   padding-right: 4px;
   display: flex;
@@ -176,6 +178,7 @@ body.menu-is-open .header nav .nav-primary .nav-hamburger .mobile-menu-icon .mob
 @media screen and (min-width: 990px) {
   .header nav .nav-primary {
     height: 75px;
+    padding-right: 15px;
   }
 
   .header nav .nav-primary .nav-hamburger {
@@ -225,6 +228,8 @@ body.menu-is-open .header nav .nav-primary .nav-hamburger .mobile-menu-icon .mob
   }
 
   .header nav .nav-utility .nav-list {
+    max-width: 1240px;
+    margin: 0 auto;
     display: flex;
     justify-content: flex-end;
     flex-direction: row;
