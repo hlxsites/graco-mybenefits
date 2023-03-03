@@ -238,8 +238,8 @@ body.menu-is-open .header nav .nav-primary .nav-hamburger .mobile-menu-icon .mob
     align-items: center;
     font-size: var(--body-font-size-xs);
     font-weight: 900;
-    color: #9b9b9b;
-    text-decoration-color: #9b9b9b;
+    color: var(--text-color-gray);
+    text-decoration-color: var(--text-color-gray);
     text-transform: uppercase;
     letter-spacing: 1px;
   }
