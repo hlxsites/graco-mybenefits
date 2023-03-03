@@ -13,9 +13,12 @@
 
 
 :root {
-  --font-family: overpass, helvetica, sans-serif;
+  --font-family-overpass: 'Overpass', 'Helvetica', sans-serif;
+  --font-family-roboto: 'Roboto', 'Arial', sans-serif;
 
   /* Font Sizes */
+  --heading-font-size-xxl: 48px;
+  --heading-font-size-xl: 34px;
   --body-font-size-l: 20px;
   --body-font-size-m: 16px;
   --body-font-size-s: 13px;
@@ -29,11 +32,13 @@
   --text-color-gray: #9b9b9b;
 
   /* Nav Height */
-  --nav-height: 76px;
+  --nav-height: 59px;
 }
 
 *, ::before, ::after {
   box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .sr-only {
@@ -47,7 +52,7 @@
 }
 
 body {
-  font-family: var(--font-family);
+  font-family: var(--font-family-overpass);
   font-size: var(--body-font-size-m);
   font-weight: 400;
   line-height: 1.5;
@@ -62,11 +67,28 @@ header {
   height: var(--nav-height);
 }
 
+h1 {
+  display: block;
+  margin: 12px 0;
+  font-style: normal;
+  font-size: var(--heading-font-size-xl);
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: .1rem;
+  text-transform: uppercase;
+}
+
 
 /* progressive section appearance */
 main .section[data-section-status='loading'],
 main .section[data-section-status='initialized'] {
   display: none;
+}
+
+@media screen and (min-width: 576px) {
+  h1 {
+    font-size: var(--heading-font-size-xxl);
+  }
 }
 
 @media screen and (min-width: 990px) {
