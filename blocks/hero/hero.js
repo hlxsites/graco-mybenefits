@@ -3,6 +3,7 @@
  * @param {Element} block The header block element
  */
 export default async function decorate(block) {
+  block.querySelector('img').setAttribute('loading', 'eager');
   block.querySelector('div').classList.add('hero-heading');
 
   const image = document.createElement('div');
