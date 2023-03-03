@@ -62,7 +62,7 @@ header {
 
 .header nav .nav-primary .nav-logo .image img {
   width: 130px;
-  height: auto;
+  height: 20px;
 }
 
 .header nav .nav-primary .nav-logo .nav-link {
@@ -265,7 +265,6 @@ body.menu-is-open .header nav .nav-primary .nav-hamburger .mobile-menu-icon .mob
   .header nav .nav-primary .nav-logo .image img {
     width: auto;
     height: 25px;
-    max-height: 50px;
   }
 
   .header nav .nav-primary .nav-logo .nav-link {
