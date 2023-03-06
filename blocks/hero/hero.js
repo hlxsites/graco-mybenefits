@@ -8,7 +8,8 @@ export default async function decorate(block) {
 
   const image = document.createElement('div');
   image.classList.add('hero-image');
-  image.append(block.querySelector('picture'));
+  const picture = block.querySelector('picture');
+  image.append(picture);
   const angle = document.createElement('div');
   angle.classList.add('hero-angle');
   image.append(angle);
