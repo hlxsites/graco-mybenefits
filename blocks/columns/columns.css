@@ -1,25 +1,36 @@
 .columns > div {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  row-gap: 36px;
+}
+
+.columns > div > div {
+  margin: 0 auto;
+  text-align: center;
 }
 
 .columns img {
-    width: 100%;
+  width: 100%;
 }
 
-@media (min-width: 900px) {
-    .columns > div {
-        display: flex;
-        align-items: center;
-        flex-direction: unset;
-    }
+@media (min-width: 768px) {
+  .columns > div {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: unset;
+  }
 
-    .columns > div > div {
-        flex: 1;
-        margin-left: 32px;
-    }
+  .columns > div > div {
+    flex: 1;
+  }
 
-    .columns > div > div:first-of-type {
-        margin-left: unset;
-    }
+  .columns.columns-2-cols > div {
+    column-gap: 123px;
+  }
+
+  .columns.columns-3-cols > div {
+    column-gap: 32px;
+  }
+
 }

@@ -4,13 +4,8 @@
 }
 
 .hero.block .hero-heading {
-  padding: 100px 0;
-}
-
-.hero.block .hero-heading .hero-heading {
   margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 100px 15px;
   width: 100%;
   max-width: 1240px;
 }
@@ -19,7 +14,7 @@
   z-index: 9999;
   margin-top: 12px;
   margin-bottom: 12px;
-  color: #fff;
+  color: var(--white);
   text-align: center;
   text-shadow: 0 1px 4px rgba(0 0 0 / 50%)
 }
@@ -63,7 +58,6 @@
 
 .hero.block .hero-image .hero-angle::before,
 .hero.block .hero-image .hero-angle::after {
-  height: 0;
   position: absolute;
   width: 0;
   content: "";
@@ -82,11 +76,16 @@
 
 @media screen and (min-width: 576px) {
   .hero.block .hero-heading {
-    padding: 117px 0 153px;
+    padding: 117px 15px 153px;
   }
 
   .hero.block .hero-image .hero-angle {
     display: block;
+  }
+
+  .hero.block .hero-image .hero-angle::before,
+  .hero.block .hero-image .hero-angle::after {
+    border-bottom: 40px solid var(--white);
   }
 }
 
@@ -97,6 +96,6 @@
 
   .hero.block .hero-image .hero-angle::before,
   .hero.block .hero-image .hero-angle::after {
-    border-bottom: 60px solid #FFF;
+    border-bottom: 60px solid var(--white);
   }
 }
