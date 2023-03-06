@@ -1,0 +1,32 @@
+.brightcove-wrapper {
+  padding: 16px 0 0;
+}
+
+.brightcove.block {
+  width: 100%;
+  position: relative;
+}
+
+.brightcove.block .video-spacer {
+  padding-bottom: 65%;
+}
+
+.brightcove.block .video-template {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .brightcove.block {
+    margin: 0 auto;
+    max-width: 50%;
+  }
+
+  .brightcove.block .video-spacer {
+    padding-bottom: 56.25%;
+  }
+}

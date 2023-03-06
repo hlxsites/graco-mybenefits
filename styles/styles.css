@@ -163,6 +163,11 @@ main .section p {
   font-family: var(--font-family-roboto);
 }
 
+main .section .default-content-wrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 /* Button Sections */
 /* stylelint-disable no-descending-specificity */
 main .section.buttons .button-container a {
