@@ -8,5 +8,5 @@ export default function decorate(block) {
     </div>
   `;
 
-  window.setTimeout(() => import('./brightcove.delayed.js'), 1000);
+  window.setTimeout(() => import('./brightcove.delayed.js'), 3000);
 }
