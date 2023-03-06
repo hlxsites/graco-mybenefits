@@ -11,10 +11,32 @@
  */
 @import url('reset.css');
 
+@font-face {
+  font-family: 'Overpass Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 88.30%;
+  descent-override: 38.30%;
+  line-gap-override: 0.00%;
+  size-adjust: 100.00%;
+}
+
+@font-face {
+  font-family: 'Roboto Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 92.77%;
+  descent-override: 24.41%;
+  line-gap-override: 0.00%;
+  size-adjust: 100.00%;
+}
+
 
 :root {
-  --font-family-overpass: 'Overpass', 'Helvetica', sans-serif;
-  --font-family-roboto: 'Roboto', 'Arial', sans-serif;
+  --font-family-overpass: 'Overpass', 'Helvetica', 'Overpass Fallback', sans-serif;
+  --font-family-roboto: 'Roboto', 'Arial', 'Roboto Fallback', sans-serif;
 
   /* Heading Font Sizes */
   --heading-font-size-xxxl: 3rem;
