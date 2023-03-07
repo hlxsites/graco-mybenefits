@@ -11,29 +11,6 @@
  */
 @import url('reset.css');
 
-@font-face {
-  font-family: 'Overpass Fallback';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Arial');
-  ascent-override: 88.30%;
-  descent-override: 38.30%;
-  line-gap-override: 0.00%;
-  size-adjust: 100.00%;
-}
-
-@font-face {
-  font-family: 'Roboto Fallback';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Arial');
-  ascent-override: 92.77%;
-  descent-override: 24.41%;
-  line-gap-override: 0.00%;
-  size-adjust: 100.00%;
-}
-
-
 :root {
   --font-family-overpass: 'Overpass', 'Helvetica', 'Overpass Fallback', sans-serif;
   --font-family-roboto: 'Roboto', 'Arial', 'Roboto Fallback', sans-serif;
@@ -162,6 +139,7 @@ strong, b {
 }
 
 main .section {
+  width: 100%;
   max-width: 1240px;
   padding: 36px 15px;
   margin: 0 auto;
@@ -231,8 +209,8 @@ main .section.buttons.blue .button-container a:hover {
 /* Parallelogram Sections */
 /* stylelint-disable no-descending-specificity */
 main .section.parallelogram {
-  margin: 48px auto;
   width: 100%;
+  margin: 48px auto;
   position: relative;
   display: flex;
   justify-content: center;
@@ -316,3 +294,26 @@ main .section[data-section-status='initialized'] {
     --nav-height: 116px;
   }
 }
+
+@font-face {
+  font-family: 'Overpass Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 88.30%;
+  descent-override: 38.30%;
+  line-gap-override: 0.00%;
+  size-adjust: 100.00%;
+}
+
+@font-face {
+  font-family: 'Roboto Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 92.77%;
+  descent-override: 24.41%;
+  line-gap-override: 0.00%;
+  size-adjust: 100.00%;
+}
+

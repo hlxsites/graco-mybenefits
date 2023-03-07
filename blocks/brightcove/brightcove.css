@@ -7,11 +7,12 @@
   position: relative;
 }
 
-.brightcove.block .video-spacer {
+.brightcove.block .video-placeholder {
   padding-bottom: 65%;
 }
 
 .brightcove.block .video-template {
+  font-size: 14px;
   position: absolute;
   top: 0;
   left: 0;
@@ -20,13 +21,42 @@
   width: 100%;
 }
 
+.brightcove.block .video-template video-js {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 0;
+  padding-top: 56.25%;
+  position: relative;
+}
+
+
+.brightcove.block .video-placeholder picture {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.brightcove.block .video-placeholder picture img {
+  object-position: top center;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
 @media screen and (min-width: 768px) {
-  .brightcove.block {
-    margin: 0 auto;
-    max-width: 50%;
+  .brightcove-wrapper {
+    display: flex;
+    justify-content: center;
   }
 
-  .brightcove.block .video-spacer {
+  .brightcove.block {
+    flex-basis: 50%;
+  }
+
+  .brightcove.block .video-placeholder {
     padding-bottom: 56.25%;
   }
 }
