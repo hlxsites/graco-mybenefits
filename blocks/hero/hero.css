@@ -115,7 +115,7 @@
   height: 100%;
   width: 100%;
   position: relative;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 20%, rgba(0, 0, 0, 0.7) 100%);
+  background-image: linear-gradient(to bottom, rgba(0  0  0 0%) 20%, rgba(0 0 0 / 70%) 100%);
 }
 
 .hero-gradient .hero.block .hero-image picture img {
