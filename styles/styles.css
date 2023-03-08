@@ -38,9 +38,12 @@
   --text-color-gray: #9b9b9b;
 
   /* Colors */
-  --button-black: #222;
-  --blue: #0033AB;
+  --blue: #0033ab;
+  --light-blue: #0be;
+  --yellow: #fcbd30;
   --white: #fff;
+  --button-black: #222;
+  --button-hover-gray: #d9d9d9;
 
   /* Nav Height */
   --nav-height: 59px;
@@ -145,8 +148,6 @@ main .section {
   max-width: 1240px;
   padding-top: 36px;
   padding-bottom: 36px;
-  padding-left: 15px;
-  padding-right: 15px;
   margin: 0 auto;
 }
 
@@ -163,10 +164,15 @@ main .section.blue {
   color: var(--white);
 }
 
-main .section p {
+main .section p:not(.button-container){
   margin-top: 12px;
   margin-bottom: 12px;
   font-family: var(--font-family-roboto);
+}
+
+main .section .default-content-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 main .section.center .default-content-wrapper {
@@ -223,6 +229,8 @@ main .section.parallelogram {
   position: relative;
   display: flex;
   justify-content: center;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 main .section.parallelogram .default-content-wrapper {
@@ -240,7 +248,6 @@ main .section.parallelogram .default-content-wrapper h2 {
 }
 
 main .section.parallelogram .default-content-wrapper .button-container {
-  margin-top: 0;
   margin-bottom: 36px;
   padding-top: 16px;
 }
@@ -294,9 +301,6 @@ main .section[data-section-status='initialized'] {
     margin-top: 0;
   }
 
-  main .section.parallelogram .default-content-wrapper .button-container {
-    margin-bottom: 0;
-  }
 }
 
 @media screen and (min-width: 990px) {
