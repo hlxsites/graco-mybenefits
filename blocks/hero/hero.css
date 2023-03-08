@@ -4,13 +4,22 @@
 }
 
 .hero.block .hero-heading {
+  position: relative;
+  z-index: 9999;
+}
+
+.hero-gradient .hero.block {
+  padding: 60px 15px;
+}
+
+.hero-chevron .hero.block .hero-heading {
   margin: 0 auto;
   padding: 100px 15px;
   width: 100%;
   max-width: 1240px;
 }
 
-.hero.block .hero-heading h1 {
+.hero-chevron .hero.block .hero-heading h1 {
   z-index: 9999;
   margin-top: 12px;
   margin-bottom: 12px;
@@ -19,7 +28,23 @@
   text-shadow: 0 1px 4px rgba(0 0 0 / 50%)
 }
 
-.hero.block .hero-image {
+.hero-gradient .hero.block .hero-heading {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-gradient .hero.block .hero-heading h1 {
+  z-index: 9999;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  color: var(--white);
+  font-size: var(--heading-font-size-l);
+  text-align: center;
+  text-shadow: 0 1px 4px rgba(0 0 0 / 50%)
+}
+
+/* stylelint-disable no-descending-specificity */
+.hero-chevron .hero.block .hero-image {
   z-index: -9999;
   display: block;
   position: absolute;
@@ -30,7 +55,7 @@
   overflow: clip;
 }
 
-.hero.block .hero-image picture {
+.hero-chevron .hero.block .hero-image picture {
   display: block;
   height: 100%;
   width: 100%;
@@ -38,14 +63,14 @@
   background-color: #eee;
 }
 
-.hero.block .hero-image picture img {
+.hero-chevron .hero.block .hero-image picture img {
   object-position: center center;
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
 
-.hero.block .hero-image .hero-angle {
+.hero-chevron .hero.block .hero-image .hero-angle {
   background-position: bottom center;
   background-size: cover;
   bottom: 0;
@@ -56,46 +81,103 @@
   width: 100vw;
 }
 
-.hero.block .hero-image .hero-angle::before,
-.hero.block .hero-image .hero-angle::after {
+.hero-chevron .hero.block .hero-image .hero-angle::before,
+.hero-chevron .hero.block .hero-image .hero-angle::after {
   position: absolute;
   width: 0;
   content: "";
   bottom: 0;
 }
 
-.hero.block .hero-image .hero-angle::before {
+.hero-chevron .hero.block .hero-image .hero-angle::before {
   left: 0;
   border-right: 50vw solid transparent;
 }
 
-.hero.block .hero-image .hero-angle::after {
+.hero-chevron .hero.block .hero-image .hero-angle::after {
   right: 0;
   border-left: 50vw solid transparent;
 }
+/* stylelint-enable no-descending-specificity */
+
+.hero-gradient .hero.block .hero-image {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: clip;
+}
+
+.hero-gradient .hero.block .hero-image picture {
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background-image: linear-gradient(to bottom, rgba(0  0  0 0%) 20%, rgba(0 0 0 / 70%) 100%);
+}
+
+.hero-gradient .hero.block .hero-image picture img {
+  position: relative;
+  z-index: -9999;
+  object-position: center center;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
 
 @media screen and (min-width: 576px) {
-  .hero.block .hero-heading {
+  /* stylelint-disable no-descending-specificity */
+  .hero-chevron .hero.block .hero-heading {
     padding: 117px 15px 153px;
   }
 
-  .hero.block .hero-image .hero-angle {
+  .hero-chevron .hero.block .hero-image .hero-angle {
     display: block;
   }
 
-  .hero.block .hero-image .hero-angle::before,
-  .hero.block .hero-image .hero-angle::after {
+  .hero-chevron .hero.block .hero-image .hero-angle::before,
+  .hero-chevron .hero.block .hero-image .hero-angle::after {
     border-bottom: 40px solid var(--white);
+  }
+  /* stylelint-enable no-descending-specificity */
+
+
+  .hero-gradient .hero.block {
+    padding: 75px 0;
+  }
+
+  .hero-gradient .hero.block .hero-heading h1 {
+    font-size: 2.3em;
+  }
+
+  .hero-gradient .hero.block .hero-image .hero-angle {
+    display: block;
+    content: '';
+    height: 0;
+    width: 0;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 60px solid var(--white);
+    border-right: 100vw solid transparent;
+    background-position: bottom center;
+    background-size: cover;
   }
 }
 
 @media screen and (min-width: 768px) {
-  .hero.block .hero-heading {
+  .hero-chevron .hero.block .hero-heading {
     padding: 147px 0 175px;
   }
 
-  .hero.block .hero-image .hero-angle::before,
-  .hero.block .hero-image .hero-angle::after {
+  .hero-chevron .hero.block .hero-image .hero-angle::before,
+  .hero-chevron .hero.block .hero-image .hero-angle::after {
     border-bottom: 60px solid var(--white);
+  }
+
+  .hero-gradient .hero.block .hero-image .hero-angle {
+    border-bottom: 40px solid var(--white);
   }
 }

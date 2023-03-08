@@ -1,20 +1,66 @@
+.columns:not(.colored-blocks) {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
-  padding: 10px;
   row-gap: 36px;
 }
 
 .columns > div > div {
   margin: 0 auto;
+  padding: 10px;
   text-align: center;
+}
+
+.columns.colored-blocks > div {
+  row-gap: 0;
+}
+
+.columns.colored-blocks > div > div {
+  margin: 0;
+  padding: 16px;
 }
 
 .columns img {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+.columns .blue {
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+.columns .light-blue {
+  color: var(--white);
+  background-color: var(--light-blue);
+}
+
+.columns .yellow {
+  color: var(--white);
+  background-color: var(--yellow);
+}
+
+
+.columns.colored-blocks .blue .button-container a,
+.columns.colored-blocks .light-blue .button-container a,
+.columns.colored-blocks .yellow .button-container a {
+  background-color: var(--white);
+  border-color: var(--white);
+  color: var(--button-black);
+}
+
+.columns.colored-blocks .blue .button-container a:hover,
+.columns.colored-blocks .light-blue .button-container a:hover,
+.columns.colored-blocks .yellow .button-container a:hover {
+  background-color: var(--button-hover-gray);
+  border-color: var(--button-hover-gray);
+  color: var(--blue);
+}
+
+@media screen and (min-width: 768px) {
   .columns > div {
     display: flex;
     align-items: flex-start;
@@ -23,14 +69,26 @@
 
   .columns > div > div {
     flex: 1;
+    padding: 0;
   }
 
   .columns.columns-2-cols > div {
-    column-gap: 123px;
+    column-gap: 16.666%;
+  }
+
+  .columns.columns-3-cols:not(.colored-blocks) > div {
+    column-gap: 32px;
+  }
+}
+
+@media screen and (min-width: 990px) {
+  .columns.colored-blocks {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .columns.columns-3-cols > div {
-    column-gap: 32px;
+    column-gap: 64px;
   }
 
 }

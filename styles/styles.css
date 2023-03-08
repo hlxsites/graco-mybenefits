@@ -38,8 +38,12 @@
   --text-color-gray: #9b9b9b;
 
   /* Colors */
-  --blue: #0033AB;
+  --blue: #0033ab;
+  --light-blue: #0be;
+  --yellow: #fcbd30;
   --white: #fff;
+  --button-black: #222;
+  --button-hover-gray: #d9d9d9;
 
   /* Nav Height */
   --nav-height: 59px;
@@ -124,6 +128,7 @@ h6 {
 
 a {
   text-decoration: none;
+  color: var(--blue);
 }
 
 a:hover {
@@ -141,7 +146,8 @@ strong, b {
 main .section {
   width: 100%;
   max-width: 1240px;
-  padding: 36px 15px;
+  padding-top: 36px;
+  padding-bottom: 36px;
   margin: 0 auto;
 }
 
@@ -158,23 +164,30 @@ main .section.blue {
   color: var(--white);
 }
 
-main .section p {
-  margin: 12px 0;
+main .section p:not(.button-container){
+  margin-top: 12px;
+  margin-bottom: 12px;
   font-family: var(--font-family-roboto);
 }
 
 main .section .default-content-wrapper {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+main .section.center .default-content-wrapper {
   max-width: 900px;
   margin: 0 auto;
 }
 
 /* Button Sections */
 /* stylelint-disable no-descending-specificity */
-main .section.buttons .button-container a {
+main .buttons .button-container a {
   margin: 4px 0;
   max-width: 100%;
   min-width: 148px;
   padding: 17px 42px 15px;
+  font-family: var(--font-family-overpass);
   font-weight: 900;
   letter-spacing: .15rem;
   text-transform: uppercase;
@@ -187,19 +200,21 @@ main .section.buttons .button-container a {
   transition: all .3s cubic-bezier(.25, .46, .45, .94);
 }
 
-main .section.buttons .button-container a:hover {
+main .buttons .button-container a:hover {
   background-color: var(--blue);
   border-color: var(--blue);
   color: var(--white)
 }
 
-main .section.buttons.blue .button-container a {
+main .buttons.blue .button-container a,
+main .buttons .blue .button-container a {
   color: var(--white);
   border: 2px solid var(--white);
   transition: all .3s cubic-bezier(.25, .46, .45, .94);
 }
 
-main .section.buttons.blue .button-container a:hover {
+main .buttons.blue .button-container a:hover,
+main .buttons .blue .button-container a:hover {
   background-color: var(--white);
   border-color: var(--white);
   color: var(--blue);
@@ -214,6 +229,8 @@ main .section.parallelogram {
   position: relative;
   display: flex;
   justify-content: center;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 main .section.parallelogram .default-content-wrapper {
@@ -231,11 +248,11 @@ main .section.parallelogram .default-content-wrapper h2 {
 }
 
 main .section.parallelogram .default-content-wrapper .button-container {
+  margin-bottom: 36px;
   padding-top: 16px;
 }
 
 main .section.parallelogram .default-content-wrapper .button-container a {
-  margin-bottom: 40px;
   font-family: var(--font-family-overpass);
 }
 /* stylelint-enable no-descending-specificity */
@@ -275,7 +292,7 @@ main .section[data-section-status='initialized'] {
     width: calc(100% - 104px);
   }
 
-  main .section.parallelogram .default-content-wrapper * {
+  main .section.parallelogram .default-content-wrapper > * {
     padding-left: 120px;
     padding-right: 120px;
   }
@@ -284,9 +301,6 @@ main .section[data-section-status='initialized'] {
     margin-top: 0;
   }
 
-  main .section.parallelogram .default-content-wrapper .button-container a {
-    margin-bottom: 0;
-  }
 }
 
 @media screen and (min-width: 990px) {
@@ -316,4 +330,3 @@ main .section[data-section-status='initialized'] {
   line-gap-override: 0.00%;
   size-adjust: 100.00%;
 }
-
