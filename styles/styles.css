@@ -21,7 +21,7 @@
   --heading-font-size-xl: 2rem;
   --heading-font-size-l: 1.7rem;
   --heading-font-size-m: 1.4rem;
-  --heading-font-size-s: 1.25rem;
+  --heading-font-size-s: 1.125rem;
   --heading-font-size-xs: 1rem;
 
   /* Body Font Sizes */
@@ -42,6 +42,7 @@
   --light-blue: #0be;
   --yellow: #fcbd30;
   --white: #fff;
+  --gray: #eee;
   --button-black: #222;
   --button-hover-gray: #d9d9d9;
 
@@ -93,7 +94,6 @@ h1 {
 }
 
 h2 {
-  text-transform: uppercase;
   margin-bottom: .75rem;
   font-size: var(--heading-font-size-l);
   font-weight: 900;
@@ -120,15 +120,40 @@ h4 {
 h6 {
   margin-top: .75rem;
   margin-bottom: .75rem;
+  padding-top: 16px;
   font-size: var(--heading-font-size-s);
   font-weight: 900;
   line-height: 1.2;
   letter-spacing: .1rem;
 }
 
+u {
+  text-decoration: underline;
+}
+
+h3:has(u) {
+  margin-bottom: 24px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #767676
+}
+
+h3 u {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
 a {
   text-decoration: none;
   color: var(--blue);
+}
+
+.blue a {
+  text-decoration: none;
+  color: var(--white);
 }
 
 a:hover {
@@ -142,6 +167,7 @@ a:not(:disabled, .disabled) {
 strong, b {
   font-weight: 700;
 }
+
 
 main .section {
   width: 100%;
@@ -162,11 +188,26 @@ main .section.center {
 
 main .section.blue {
   color: var(--white);
+  background-color: var(--blue);
+  margin: 0;
+  max-width: unset;
 }
 
-main .section p:not(.button-container){
+main .section.gray {
+  background-color: var(--gray);
+  margin: 0;
+  max-width: unset;
+}
+
+
+
+main .section p {
   margin-top: 12px;
   margin-bottom: 12px;
+  font-family: var(--font-family-roboto);
+}
+
+main .section.buttons p.button-container {
   font-family: var(--font-family-roboto);
 }
 
@@ -180,13 +221,32 @@ main .section.center .default-content-wrapper {
   margin: 0 auto;
 }
 
+main .section.image-right .default-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main .section.image-right .default-content-wrapper > :first-child {
+  flex-basis: 100%;
+}
+
+main .section.image-right .default-content-wrapper .content {
+  flex-basis: 100%;
+}
+
+main .section.image-right .default-content-wrapper .image {
+  margin-top: 15px;
+  flex-basis: 100%;
+}
+
 /* Button Sections */
 /* stylelint-disable no-descending-specificity */
 main .buttons .button-container a {
-  margin: 4px 0;
+  margin: 4px auto;
   max-width: 100%;
+  width: 100%;
   min-width: 148px;
-  padding: 17px 42px 15px;
+  padding: 17px 0 15px;
   font-family: var(--font-family-overpass);
   font-weight: 900;
   letter-spacing: .15rem;
@@ -224,6 +284,7 @@ main .buttons .blue .button-container a:hover {
 /* Parallelogram Sections */
 /* stylelint-disable no-descending-specificity */
 main .section.parallelogram {
+  max-width: 1240px;
   width: 100%;
   margin: 48px auto;
   position: relative;
@@ -231,6 +292,7 @@ main .section.parallelogram {
   justify-content: center;
   padding-left: 15px;
   padding-right: 15px;
+  background-color: var(--white);
 }
 
 main .section.parallelogram .default-content-wrapper {
@@ -272,9 +334,20 @@ main .section[data-section-status='initialized'] {
   h3 {
     font-size: var(--heading-font-size-xxl);
   }
+
+  main .buttons .button-container a {
+    margin: 4px 0;
+    max-width: 100%;
+    width: unset;
+    padding: 17px 42px 15px;
+  }
 }
 
 @media screen and (min-width: 768px) {
+  main .section.parallelogram {
+    background-color: unset;
+  }
+
   main .section.parallelogram .default-content-wrapper {
     padding: 0;
     background-color: unset;
@@ -301,6 +374,23 @@ main .section[data-section-status='initialized'] {
     margin-top: 0;
   }
 
+  main .section.parallelogram .default-content-wrapper .button-container {
+    margin-bottom: 0;
+  }
+
+  main .section.image-right .default-content-wrapper > :first-child {
+    flex-basis: 100%;
+  }
+
+  main .section.image-right .default-content-wrapper .content {
+    flex-basis: 58%;
+    padding-right: 15px;
+  }
+
+  main .section.image-right .default-content-wrapper .image {
+    flex-basis: 42%;
+    padding-left: 15px;
+  }
 }
 
 @media screen and (min-width: 990px) {
