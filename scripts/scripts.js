@@ -31,6 +31,30 @@ function buildHeroBlock(main) {
   }
 }
 
+function buildFloatingImages(main) {
+  const sections = main.querySelectorAll('.section.image-right .default-content-wrapper');
+  if (sections) {
+    sections.forEach((section) => {
+      const image = document.createElement('div');
+      image.classList.add('image');
+      const picture = section.querySelector('picture');
+      if (picture) {
+        // Remove the <p> tag wrapper;
+        const parent = picture.parentElement;
+        image.append(picture);
+        parent.remove();
+      }
+
+      const content = section.querySelectorAll(':scope *:not(:first-child)');
+      const left = document.createElement('div');
+      left.classList.add('content');
+      left.append(...content);
+
+      section.append(left, image);
+    });
+  }
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -56,6 +80,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  buildFloatingImages(main);
 }
 
 /**
