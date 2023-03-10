@@ -43,6 +43,7 @@
   --yellow: #fcbd30;
   --white: #fff;
   --gray: #eee;
+  --light-gray: #767676;
   --button-black: #222;
   --button-hover-gray: #d9d9d9;
 
@@ -168,7 +169,6 @@ strong, b {
   font-weight: 700;
 }
 
-
 main .section {
   width: 100%;
   max-width: 1240px;
@@ -189,8 +189,6 @@ main .section.center {
 main .section.blue {
   color: var(--white);
   background-color: var(--blue);
-  margin: 0;
-  max-width: unset;
 }
 
 main .section.gray {
@@ -198,8 +196,6 @@ main .section.gray {
   margin: 0;
   max-width: unset;
 }
-
-
 
 main .section p {
   margin-top: 12px;
@@ -226,6 +222,19 @@ main .section.image-right .default-content-wrapper {
   flex-wrap: wrap;
 }
 
+main .section .default-content-wrapper ul {
+  margin-bottom: 1rem;
+  padding: 16px 0 16px 30px;
+  list-style-type: disc;
+  list-style-position: outside;
+}
+
+main .section .default-content-wrapper ul li {
+  padding-left: 8px;
+  font-family: var(--font-family-roboto);
+}
+
+
 main .section.image-right .default-content-wrapper > :first-child {
   flex-basis: 100%;
 }
@@ -250,6 +259,7 @@ main .buttons .button-container a {
   font-family: var(--font-family-overpass);
   font-weight: 900;
   letter-spacing: .15rem;
+  text-align: center;
   text-transform: uppercase;
   text-decoration-line: none;
   appearance: none;
@@ -284,9 +294,7 @@ main .buttons .blue .button-container a:hover {
 /* Parallelogram Sections */
 /* stylelint-disable no-descending-specificity */
 main .section.parallelogram {
-  max-width: 1240px;
   width: 100%;
-  margin: 48px auto;
   position: relative;
   display: flex;
   justify-content: center;
