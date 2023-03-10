@@ -1,25 +1,45 @@
-import { decorateButtons, decorateIcons, decorateSections, decorateBlocks } from '../../scripts/lib-franklin.js';
+/*
+ * Fragment Block
+ * Include content from one Helix page in another.
+ * https://www.hlx.live/developer/block-collection/fragment
+ */
+
+import {
+  decorateMain,
+} from '../../scripts/scripts.js';
+
+import {
+  loadBlocks,
+} from '../../scripts/lib-franklin.js';
 
 /**
- * decorates the hero,
- * @param {Element} block The header block element
+ * Loads a fragment.
+ * @param {string} path The path to the fragment
+ * @returns {HTMLElement} The root element of the fragment
  */
-export default async function decorate(block) {
-  const ref = block.querySelector('a');
-  if (ref && ref.getAttribute('href')) {
-    const resp = await fetch(`${ref.getAttribute('href')}.plain.html`);
+async function loadFragment(path) {
+  if (path && path.startsWith('/')) {
+    const resp = await fetch(`${path}.plain.html`);
     if (resp.ok) {
-      const content = await resp.text();
       const main = document.createElement('main');
-      main.innerHTML = content;
-      decorateButtons(main);
-      decorateSections(main);
-      decorateBlocks(main);
-      const section = main.querySelector('.section');
-      block.closest('.section').classList.add(...section.classList);
-      block.parentElement.outerHTML = section.innerHTML;
+      main.innerHTML = await resp.text();
+      decorateMain(main);
+      await loadBlocks(main);
+      return main;
     }
   }
+  return null;
+}
 
-  decorateIcons(block);
+export default async function decorate(block) {
+  const link = block.querySelector('a');
+  const path = link ? link.getAttribute('href') : block.textContent.trim();
+  const fragment = await loadFragment(path);
+  if (fragment) {
+    const fragmentSection = fragment.querySelector(':scope .section');
+    if (fragmentSection) {
+      block.closest('.section').classList.add(...fragmentSection.classList);
+      block.closest('.fragment-wrapper').replaceWith(...fragmentSection.childNodes);
+    }
+  }
 }
