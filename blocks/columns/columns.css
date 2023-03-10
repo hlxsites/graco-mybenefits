@@ -14,6 +14,14 @@
   padding-right: 15px;
 }
 
+.columns h1, .columns h2, .columns h3, .columns h4, .columns h5, .columns h6 {
+  text-align: center;
+}
+
+.columns.center {
+  text-align: center;
+}
+
 .columns > div {
   display: flex;
   flex-direction: column;
@@ -23,7 +31,6 @@
 .columns > div > div {
   margin: 0 auto;
   padding: 10px;
-  text-align: center;
 }
 
 .columns.colored-blocks > div {
