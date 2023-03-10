@@ -61,6 +61,12 @@
   background-color: var(--yellow);
 }
 
+.columns .light-gray {
+  color: var(--white);
+  background-color: var(--light-gray);
+}
+
+
 .columns.colored-blocks .blue .button-container a,
 .columns.colored-blocks .light-blue .button-container a,
 .columns.colored-blocks .yellow .button-container a {
@@ -95,6 +101,10 @@
 
   .columns.columns-2-cols > div > div {
     padding: 24px 16px;
+  }
+
+  .columns.columns-4-cols > div > div {
+    padding: 24px;
   }
 
 
