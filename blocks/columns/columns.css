@@ -8,7 +8,6 @@
   margin: 0 auto;
 }
 
-
 .columns:not(.colored-blocks) {
   padding-left: 15px;
   padding-right: 15px;
@@ -66,10 +65,10 @@
   background-color: var(--light-gray);
 }
 
-
 .columns.colored-blocks .blue .button-container a,
 .columns.colored-blocks .light-blue .button-container a,
-.columns.colored-blocks .yellow .button-container a {
+.columns.colored-blocks .yellow .button-container a,
+.columns.colored-blocks .light-gray .button-container a {
   background-color: var(--white);
   border-color: var(--white);
   color: var(--button-black);
@@ -77,7 +76,8 @@
 
 .columns.colored-blocks .blue .button-container a:hover,
 .columns.colored-blocks .light-blue .button-container a:hover,
-.columns.colored-blocks .yellow .button-container a:hover {
+.columns.colored-blocks .yellow .button-container a:hover,
+.columns.colored-blocks .light-gray .button-container a:hover{
   background-color: var(--button-hover-gray);
   border-color: var(--button-hover-gray);
   color: var(--blue);
