@@ -7,9 +7,9 @@ indices:
       - 'drafts/**'
       - 'images/**'
       - '/**/footer'
-      - '/**/nav'
-      - '/**/contact'
-      - '/**/government-notice'
+      - '/nav'
+      - '/contact'
+      - '/government-notice'
     target: /query-index.json
     properties:
       lastModified:
