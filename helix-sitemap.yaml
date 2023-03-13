@@ -1,8 +1,0 @@
-sitemaps:
-  mybenefits:
-    origin: https://benefits.graco.com
-    languages:
-      en:
-        source: /query-index.json
-        destination: /sitemap.xml
-        hreflang: en
