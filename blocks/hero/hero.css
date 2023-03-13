@@ -5,7 +5,7 @@
 
 .hero.block .hero-heading {
   position: relative;
-  z-index: 9999;
+  z-index: 1;
 }
 
 .hero-gradient .hero.block {
@@ -20,7 +20,7 @@
 }
 
 .hero-chevron .hero.block .hero-heading h1 {
-  z-index: 9999;
+  z-index: 1;
   margin-top: 12px;
   margin-bottom: 12px;
   color: var(--white);
@@ -34,7 +34,7 @@
 }
 
 .hero-gradient .hero.block .hero-heading h1 {
-  z-index: 9999;
+  z-index: 1;
   margin-top: 12px;
   margin-bottom: 12px;
   color: var(--white);
