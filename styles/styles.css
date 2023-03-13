@@ -157,6 +157,21 @@ a {
   color: var(--white);
 }
 
+.yellow a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.light-gray a {
+  text-decoration: none;
+  color: var(--white);
+}
+
+.light-blue a {
+  text-decoration: none;
+  color: var(--white);
+}
+
 a:hover {
   text-decoration: underline;
 }
@@ -249,7 +264,6 @@ main .section.image-right .default-content-wrapper .image {
 }
 
 /* Button Sections */
-/* stylelint-disable no-descending-specificity */
 main .buttons .button-container a {
   margin: 4px auto;
   max-width: 100%;
@@ -289,10 +303,8 @@ main .buttons .blue .button-container a:hover {
   border-color: var(--white);
   color: var(--blue);
 }
-/* stylelint-enable no-descending-specificity */
 
 /* Parallelogram Sections */
-/* stylelint-disable no-descending-specificity */
 main .section.parallelogram {
   width: 100%;
   position: relative;
@@ -325,7 +337,6 @@ main .section.parallelogram .default-content-wrapper .button-container {
 main .section.parallelogram .default-content-wrapper .button-container a {
   font-family: var(--font-family-overpass);
 }
-/* stylelint-enable no-descending-specificity */
 
 /* progressive section appearance */
 main .section[data-section-status='loading'],
