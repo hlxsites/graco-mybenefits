@@ -9,6 +9,12 @@
 
 .brightcove.block .video-placeholder {
   padding-bottom: 65%;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.brightcove.block.video-play-mode .video-placeholder {
+  z-index: -1;
 }
 
 .brightcove.block .video-template {
@@ -19,6 +25,11 @@
   right: 0;
   bottom: 0;
   width: 100%;
+  z-index: -1;
+}
+
+.brightcove.block.video-play-mode .video-template {
+  z-index: 1;
 }
 
 .brightcove.block .video-template video-js {
