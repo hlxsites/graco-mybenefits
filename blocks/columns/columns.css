@@ -30,6 +30,7 @@
 .columns > div > div {
   margin: 0 auto;
   padding: 10px;
+  flex: 1;
 }
 
 .columns.colored-blocks > div {
@@ -106,7 +107,6 @@
 
   .columns.columns-4-cols > div > div {
     padding: 24px 16px;
-    flex: 1;
   }
 
   .columns.colored-blocks.columns-2-cols > div {
