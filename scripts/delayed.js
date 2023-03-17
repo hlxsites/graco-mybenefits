@@ -3,4 +3,3 @@ import { sampleRUM } from './lib-franklin.js';
 
 // Core Web Vitals RUM collection
 sampleRUM('cwv');
-
