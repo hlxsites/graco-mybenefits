@@ -181,6 +181,12 @@ body.menu-is-open .header nav .nav-primary .nav-hamburger .mobile-menu-icon .mob
     padding-right: 15px;
   }
 
+  .header nav .nav-utility .nav-list img {
+    max-height: 16px;
+    max-width: 16px;
+    margin-left: 12px;
+  }
+
   .header nav .nav-primary .nav-logo .image img {
     width: 100%;
     height: auto;
@@ -260,12 +266,6 @@ body.menu-is-open .header nav .nav-primary .nav-hamburger .mobile-menu-icon .mob
     text-decoration-color: var(--text-color-gray);
     text-transform: uppercase;
     letter-spacing: 1px;
-  }
-
-  .header nav .nav-utility .nav-list img {
-    max-height: 16px;
-    max-width: 16px;
-    margin-left: 12px;
   }
 }
 
