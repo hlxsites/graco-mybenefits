@@ -28,8 +28,14 @@
 }
 
 .columns > div > div {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 10px;
+  flex: 1;
+}
+
+.columns > div > div > * {
   flex: 1;
 }
 
