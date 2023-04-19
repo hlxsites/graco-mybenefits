@@ -111,6 +111,7 @@ h3 {
 }
 
 h4 {
+  margin-top: .75rem;
   margin-bottom: .75rem;
   font-size: var(--heading-font-size-m);
   font-weight: 900;
