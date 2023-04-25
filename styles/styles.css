@@ -44,8 +44,11 @@
   --white: #fff;
   --gray: #eee;
   --light-gray: #767676;
+
+  /* Button Vars */
   --button-black: #222;
   --button-hover-gray: #d9d9d9;
+  --button-transition: all .3s cubic-bezier(.25, .46, .45, .94);
 
   /* Nav Height */
   --nav-height: 59px;
@@ -282,7 +285,7 @@ main .buttons .button-container a {
   display: inline-block;
   color: var(--blue);
   border: 2px solid var(--blue);
-  transition: all .3s cubic-bezier(.25, .46, .45, .94);
+  transition: var(--button-transition);
 }
 
 main .buttons .button-container a:hover {
@@ -295,7 +298,15 @@ main .buttons.blue .button-container a,
 main .buttons .blue .button-container a {
   color: var(--white);
   border: 2px solid var(--white);
-  transition: all .3s cubic-bezier(.25, .46, .45, .94);
+  transition: var(--button-transition);
+}
+
+main .buttons.yellow .button-container a,
+main .buttons .yellow .button-container a {
+  background-color:  var(--yellow);
+  border-color: var(--yellow);
+  color: var(--button-black);
+  transition: var(--button-transition);
 }
 
 main .buttons.blue .button-container a:hover,
@@ -304,6 +315,15 @@ main .buttons .blue .button-container a:hover {
   border-color: var(--white);
   color: var(--blue);
 }
+
+main .buttons.yellow .button-container a:hover,
+main .buttons .yellow .button-container a:hover {
+  background-color:  var(--yellow);
+  border-color: var(--yellow);
+  color: var(--button-black);
+  transition: var(--button-transition);
+}
+
 
 /* Parallelogram Sections */
 main .section.parallelogram {
