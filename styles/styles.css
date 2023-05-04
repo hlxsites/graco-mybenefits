@@ -201,6 +201,36 @@ main .section:first-of-type {
   padding: 0;
 }
 
+main .section.no-padding,
+main .section.no-top-padding {
+  padding-top: 0;
+}
+
+main .section.no-padding,
+main .section.no-bottom-padding {
+  padding-bottom: 0;
+}
+
+main .section.small-padding,
+main .section.small-top-padding {
+  padding-top: 12px;
+}
+
+main .section.small-padding,
+main .section.small-bottom-padding {
+  padding-bottom: 12px;
+}
+
+main .section.medium-padding,
+main .section.medium-top-padding {
+  padding-top: 24px;
+}
+
+main .section.medium-padding,
+main .section.medium-bottom-padding {
+  padding-bottom: 24px;
+}
+
 main .section.center {
   text-align: center;
 }
@@ -231,14 +261,24 @@ main .section .default-content-wrapper {
   padding-right: 15px;
 }
 
+main .section.image-right .default-content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 main .section.center .default-content-wrapper {
   max-width: 900px;
   margin: 0 auto;
 }
 
-main .section.image-right .default-content-wrapper {
-  display: flex;
-  flex-wrap: wrap;
+main .section.center.wide .default-content-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+main .section.center.full-width .default-content-wrapper {
+  max-width: 1240px;
+  margin: 0 auto;
 }
 
 main .section .default-content-wrapper ul {
@@ -336,6 +376,7 @@ main .section.parallelogram {
   background-color: var(--white);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.parallelogram .default-content-wrapper {
   padding: 36px;
   max-width: 100%;
