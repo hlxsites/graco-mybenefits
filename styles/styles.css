@@ -376,6 +376,7 @@ main .section.parallelogram {
   background-color: var(--white);
 }
 
+/* stylelint-disable-next-line no-descending-specificity */
 main .section.parallelogram .default-content-wrapper {
   padding: 36px;
   max-width: 100%;
