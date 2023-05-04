@@ -35,9 +35,6 @@
   flex: 1;
 }
 
-.columns:not(.colored-blocks) > div > div > * {
-  flex: 1;
-}
 
 .columns.colored-blocks > div {
   row-gap: 0;
